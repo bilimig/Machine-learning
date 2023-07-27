@@ -1,7 +1,7 @@
 # A binary classifier that recognizes one of the digits in MNIST.
 
 import numpy as np
-
+import matplotlib.pyplot as plt
 # Applying Logistic Regression
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
@@ -47,5 +47,22 @@ def test(X, Y, w):
 
 # Test it
 import mnist as data
+
+DIGIT = 5
+
+# X = data.load_images("train-images-idx3-ubyte.gz")
+# Y = data.load_labels("train-labels-idx1-ubyte.gz").flatten()
+# digits = X[Y == DIGIT]
+# np.random.shuffle(digits)
+#
+# rows, columns = 3, 15
+# fig = plt.figure()
+# for i in range(rows * columns):
+#     ax = fig.add_subplot(rows, columns, i + 1)
+#     ax.axis('off')
+#     ax.imshow(digits[i].reshape((28, 28)), cmap="Greys")
+# plt.show()
+
 w = train(data.X_train, data.Y_train, iterations=100, lr=1e-5)
 test(data.X_test, data.Y_test, w)
+
