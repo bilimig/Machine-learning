@@ -25,7 +25,7 @@ def loss(X, Y, w):
 def gradient(X, Y, w):
     return np.matmul(X.T, (forward(X, w) - Y)) / X.shape[0]
 
-# calling the training function for 10,000 iterations
+# calling the training function for 10k iterations
 def train(X, Y, iterations, lr):
     w = np.zeros((X.shape[1], 1))
     for i in range(iterations):
